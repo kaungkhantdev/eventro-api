@@ -42,7 +42,7 @@ export class CreateUserDto {
   @ApiPropertyOptional({
     description: 'User role',
     enum: UserRole,
-    example: UserRole.CUSTOMER,
+    example: UserRole.ATTENDEE,
   })
   @IsOptional()
   @IsEnum(UserRole)
@@ -105,7 +105,7 @@ export class UserResponseDto {
   @ApiProperty({
     description: 'User role',
     enum: UserRole,
-    example: UserRole.CUSTOMER,
+    example: UserRole.ATTENDEE,
   })
   role: UserRole;
 
