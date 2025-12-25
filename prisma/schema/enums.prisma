@@ -1,0 +1,31 @@
+enum UserRole {
+  ATTENDEE      // registers for events
+  ORGANIZER     // creates & manages events
+  ADMIN         // system admin
+}
+
+enum EventStatus {
+  DRAFT
+  PUBLISHED
+  CANCELLED
+  COMPLETED
+}
+
+enum EventType {
+  ONLINE
+  IN_PERSON
+}
+
+enum RegistrationStatus {
+  PENDING
+  CONFIRMED
+  CANCELLED
+  REFUNDED
+}
+
+enum PaymentStatus {
+  PENDING
+  PAID
+  FAILED
+  REFUNDED
+}

@@ -1,0 +1,24 @@
+model Payment {
+  id              String        @id @default(uuid())
+  registrationId  String        @unique @map("registration_id")
+  
+  amount          Decimal       @db.Decimal(10, 2)
+  currency        String        @default("USD")
+  method          String?       // "card", "paypal", etc.
+  
+  transactionId   String?       @unique @map("transaction_id")
+  provider        String?       // "stripe", "paypal"
+  
+  status          PaymentStatus @default(PENDING)
+  paidAt          DateTime?     @map("paid_at")
+  failedAt        DateTime?     @map("failed_at")
+  refundedAt      DateTime?     @map("refunded_at")
+  
+  createdAt       DateTime      @default(now()) @map("created_at")
+  updatedAt       DateTime      @updatedAt @map("updated_at")
+
+  registration    Registration  @relation(fields: [registrationId], references: [id])
+
+  @@index([transactionId])
+  @@map("payments")
+}
