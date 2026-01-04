@@ -13,7 +13,7 @@ import { Public } from '../../common/decorators/public.decorator';
 // import { CreateEventDto } from './dto/create-event.dto';
 // import { UpdateEventDto } from './dto/update-event.dto';
 
-@Controller('events')
+@Controller({ path: 'events', version: '1' })
 export class EventsController {
   constructor(private readonly eventsService: EventsService) {}
 
